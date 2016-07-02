@@ -1,0 +1,15 @@
+FROM alpine
+
+RUN apk update && apk add wget
+
+RUN wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/ostinato-0.7.1-r0.apk
+RUN wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/ostinato-drone-0.7.1-r0.apk
+RUN wget http://nl.alpinelinux.org/alpine/edge/testing/x86_64/ostinato-gui-0.7.1-r0.apk
+RUN apk add ostinato-0.7.1-r0.apk
+RUN apk add ostinato-drone-0.7.1-r0.apk
+RUN apk add ostinato-gui-0.7.1-r0.apk
+
+RUN rm -rf /var/cache/apk/*
+
+
+CMD ostinato
